@@ -1,0 +1,48 @@
+<%# archive page(archive, categories and tags pages will use this page) %>
+
+<div class="mdui-row simple-archive-header">
+    <div class="mdui-col-xs-10 mdui-col-offset-xs-1 mdui-valign" style="height: 100px;">
+        <div class="mdui-typo-display-2 mdui-text-color-white" id="div-archive-title">Archives</div>
+    </div>
+</div>
+
+<%  var posts = [];
+    page.posts.each(function(post){
+        posts.push(post);
+    });
+    var sortPosts = _[_.orderBy ? 'orderBy' : 'sortByOrder'](posts, ['date'], ['desc']);
+%>
+
+<div class="mdui-row simple-height">
+
+<%  var prevYear = 0, prevMonth = 0, count = -1;
+    sortPosts.forEach(function(post, i){
+        var postDate = post.date;
+        var currentYear = postDate.year();
+        var currentMonth = postDate.month();
+        if(currentYear !== prevYear || currentMonth !== prevMonth) {
+            prevYear = currentYear;
+            prevMonth = currentMonth;
+            count = -1;
+            if(i > 0) { %>
+                </div> 
+            <% } %>
+            <div class="mdui-row">
+                <div class="mdui-col-md-4 mdui-col-offset-md-2 mdui-col-xs-12">
+                    <h3 class="archive-separator"><%=postDate.format('MMMM, YYYY')%></h3>
+                </div>
+            </div>
+            <div class="mdui-row">
+        <%}
+        count++;
+        var offset = " mdui-col-offset-md-2 ";
+        if (count % 2 === 1) {
+            offset = " ";
+        }
+        %>
+        <div class="mdui-col-md-4<%= offset %>mdui-col-xs-12">
+            <%- partial('_partial/article-excerpt', {item: post, date_format: 'MMM D', hide_excerpt: true}) %>
+        </div>
+    <% }); %>
+    </div>
+</div>

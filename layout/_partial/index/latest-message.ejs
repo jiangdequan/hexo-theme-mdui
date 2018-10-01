@@ -1,0 +1,40 @@
+<div class="mdui-card mdui-hoverable simple-latest-message">
+    <div class="mdui-card-header">
+        <h3><i class="mdui-list-item-icon mdui-icon ion-ios-megaphone"></i> 最新消息</h3>
+    </div>
+    <div class="mdui-card-content mdui-typo">
+        <small id="message">暂无消息!!!</small>
+    </div>
+    <div class="mdui-text-right">
+        <small id="datetime">2000-01-01 00:00:00</small>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $.getJSON("<%- theme.latest.message.url %>", function(json) {
+            var messages = json.messages;
+            var start = "2000-01-01 00:00:00";
+            var message = "暂无消息!!!";
+            if (undefined !== messages) {
+                for (var i = 0; i < messages.length; i++) {
+                    if (compareDate(messages[i].datetime, start)) {
+                        start = messages[i].datetime;
+                        message = messages[i].message;
+                    }
+                }
+            }
+            $("#message").text(message);
+            $("#datetime").text(start);
+        });
+
+        function compareDate(date1, date2) {
+            var start = new Date(date1.replace(/-/g, "/"));
+            var end = new Date(date2.replace(/-/g, "/"));
+            if (start > end) {
+                return true;
+            }
+            return false;
+        }
+    });
+</script>
+<br>

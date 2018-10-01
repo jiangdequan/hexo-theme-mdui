@@ -1,0 +1,55 @@
+<%
+// save all tags, if the the name of tag is exist, then accumulate the count
+var tagMap = new Map();
+// the count of hot tags
+var showHotTagsCount = 10;
+
+site.posts.each(function(post) {
+    post.tags.each(function(tag) {
+        // the name of tag
+        var tagName = tag.name;
+        // exist
+        if (tagMap.has(tagName)) {
+            // accumulate
+            tagMap.set(tagName, tagMap.get(tagName) + 1);
+        } else {
+            // just save, default count is 1
+            tagMap.set(tagName, 1);
+        }
+    });
+});
+
+var tagArray = [];
+tagMap.forEach(function(value, key, ownerMap) {
+    var tag = {};
+    tag.name = key;
+    tag.value = value;
+    tagArray.push(tag);
+});
+
+// sort
+for (var i = 0; i < tagArray.length - 1; i++) {
+    for (var j = 0; j < tagArray.length - 1 - i; j++) {
+        if (tagArray[j].value < tagArray[j + 1].value) {
+            var swap = tagArray[j];
+            tagArray[j] = tagArray[j + 1];
+            tagArray[j + 1] = swap;
+        }
+    }
+}
+%>
+
+<div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-header">
+        <h3><i class="mdui-list-item-icon mdui-icon ion-ios-flame"></i> 热门标签</h3>
+    </div>
+    <div class="mdui-card-content">
+    <% for (var i = 0; i < tagArray.length - 1; i++) { 
+        var color = 'mdui-color-' + theme.tags.colors[i % theme.tags.colors.length]; %>
+        <a class="mdui-btn mdui-btn-dense mdui-hoverable <%= color %> simple-hot-tags" href="/tags/<%= tagArray[i].name %>">
+            <%= tagArray[i].name %> <%= tagArray[i].value %>
+        </a>
+    <% } %>
+    </div>
+</div>
+<br>

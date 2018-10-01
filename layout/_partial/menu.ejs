@@ -1,0 +1,64 @@
+<%# left menu %>
+
+<div class="mdui-drawer mdui-drawer-full-height mdui-drawer-close mdui-color-white simple-menu-cls" id="simple-menu">
+    <div class="simple-menu-author">
+        <a href="/">
+            <img class="mdui-img-circle" src="<%= config.avatar %>"/>
+        </a>
+        <div class="mdui-typo-title"><%= config.author %></div>
+        <p><%= config.email %></p>
+    </div>
+    <ul class="mdui-list mdui-typo">
+        <li class="mdui-list-item mdui-ripple mdui-valign">
+            <a href="<%- theme.menu.home %>">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe88a;</i>
+                <span>&nbsp;&nbsp;Home</span>
+            </a>
+        </li>
+        <li class="mdui-list-item mdui-ripple">
+            <a href="<%- theme.menu.archives %>">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe865;</i>
+                <span>&nbsp;&nbsp;Archives</span>
+            </a>
+        </li>
+        <li class="mdui-list-item mdui-ripple">
+            <a href="<%- theme.menu.categories %>">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe164;</i>
+                <span>&nbsp;&nbsp;Categories</span>
+            </a>
+        </li>
+        <li class="mdui-list-item mdui-ripple">
+            <a href="<%- theme.menu.tags %>">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe54e;</i>
+                <span>&nbsp;&nbsp;Tags</span>
+            </a>
+        </li>
+        <li class="mdui-list-item mdui-ripple">
+            <a href="<%- theme.menu.github %>" target="_blank">
+                <i class="mdui-list-item-icon mdui-icon ion-logo-github"></i>
+                <span>&nbsp;&nbsp;GitHub</span>
+            </a>
+        </li>
+        <li class="mdui-list-item mdui-ripple">
+            <a href="<%- theme.menu.about %>">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe87c;</i>
+                <span>&nbsp;&nbsp;About</span>
+            </a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <i class="mdui-icon material-icons">&#xe8f4;</i>
+            <div class="mdui-list-item-content">
+                <span id="busuanzi_container_site_pv">
+                    <span id="busuanzi_value_site_pv"></span>
+                </span>
+            </div>
+            <i class="mdui-icon material-icons">&#xe851;</i>
+            <div class="mdui-list-item-content">
+                <span id="busuanzi_container_site_uv">
+                    <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>

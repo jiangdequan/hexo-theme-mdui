@@ -1,0 +1,51 @@
+
+# HTML head
+head:
+  favicon: /img/favicon.png
+  high_res_favicon: /img/favicon.png
+  apple_touch_icon: /img/favicon.png
+  keywords: blog, hexo, mdui
+
+# appbar
+appbar:
+  title: "Title"
+  search: false
+
+menu:
+  home: /
+  archives: /archives
+  tags: /tags
+  categories: /categories
+  github: https://github.com/jiangdequan
+  about: /about
+
+# 文章截断
+excerpt:
+  render: false
+  length: 200
+  link: Read More
+
+latest:
+  message:
+    url: https://raw.githubusercontent.com/jiangdequan/jiangdequan.github.io/message.json
+
+recent:
+  posts: 10
+
+# https://www.mdui.org/docs/color
+tags:
+  colors:
+    - green
+    - deep-purple
+    - orange
+    - teal
+    - blue
+    - red
+    - indigo
+
+algolia:
+  applicationID: 'your applicationID'
+  apiKey: 'your apiKey'
+  adminApiKey: 'your adminApiKey'
+  indexName: 'your index name'
+  chunkSize: 5000

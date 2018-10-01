@@ -1,0 +1,34 @@
+<%# categories page %>
+
+<div class="mdui-row simple-archive-header">
+    <div class="mdui-col-xs-10 mdui-col-offset-xs-1 mdui-valign simple-archive-header-inner">
+        <div class="mdui-typo-display-3 mdui-text-color-white" id="div-archive-title">Categories</div>
+    </div>
+</div>
+<div class="mdui-row simple-archive-name">
+    <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-valign simple-archive-name-inner">
+        <a href="/categories" class="mdui-btn simple-archive-btn" style="color:#ff4081;">All</a>
+        <% site.categories.each(function(category, i) {
+            if(i < 10){ %>
+                <a href="/categories/<%=category.name%>" class="mdui-btn simple-archive-btn"><%=category.name %></a>
+            <% }
+        }); %>
+    </div>
+</div>
+
+<div class="mdui-row simple-height">
+    <div class="mdui-row" id="category-all">
+        <% site.posts.each(function(post, i) {
+            var offset = 'mdui-col-offset-md-2';
+            if (i % 2 === 1) {
+                offset = '';
+            }
+        %>
+        <div class="mdui-col-md-4 <%= offset %> mdui-col-xs-12">
+            <%- partial('_partial/article-excerpt', {item: post, hide_excerpt: true}) %>
+        </div>
+        <% }); %>
+    </div>
+</div>
+
+<%- js('js/archive.js') %>

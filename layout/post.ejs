@@ -1,0 +1,140 @@
+<%# article page %>
+
+<%# toc %>
+<div class="mdui-drawer mdui-drawer-right simple-toc-cls" id="simple-toc">
+    <nav class="post-toc-wrap post-toc-shrink">
+        <h4>TOC</h4>
+        <% if (page.toc != false){ %>
+            <%- toc(page.content, {list_number: false, class: "post-toc"}) %>
+        <% } %>
+    </nav>
+</div>
+
+<%# reward %>
+<div class="mdui-dialog simple-donation-cls" id="simple-donation">
+    <div class="mdui-dialog-title">支持一下?</div>
+    <div class="mdui-row mdui-m-b-3">
+        <div class="mdui-col-md-12 mdui-text-center">
+            <p id="simple-alipay">
+                <img src="/images/alipay.jpg"/>
+                <br>
+                <span class="mdui-typo-title">Alipay 支付宝</span>
+            </p>
+            <p class="simple-wechat-cls" id="simple-wechat">
+                <img src="/images/wechat.jpg"/>
+                <br>
+                <span class="mdui-typo-title">WeChat 微信</span>
+            </p>
+        </div>
+        <div class="mdui-col-md-12 mdui-text-center">
+            <label class="mdui-switch" id="simple-switch">
+                <input type="checkbox"/>
+                <i class="mdui-switch-icon"></i>
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="simple-post-header"></div>
+
+<%# content %>
+<div class="mdui-row" style="margin-top: -110px;z-index:9999;">
+    <div class="mdui-card mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12 mdui-col-offset-xs-0 mdui-shadow-12 simple-post-cls" id="simple-post">
+        <div class="mdui-card-content mdui-typo">
+            <%# title %>
+            <h1><%- page.title %></h1>
+
+            <%# post date %>
+            <small class="mdui-typo-body-2-opacity mdui-m-b-1">
+                <%= page.date.format(config.date_format) %>
+            </small>
+
+            <%# reading times %>
+            <div class="mdui-center mdui-text-center">
+                <span id="busuanzi_container_page_pv">
+                    <del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</del> 阅读量 
+                    <span id="busuanzi_value_page_pv"></span> 
+                    <del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</del>
+                </span>
+            </div>
+
+            <%# content %>
+            <div class="mdui-m-b-2 simple-content">
+                <%- page.content %>
+            </div>
+
+            <%# post modify date & link %>
+            <div class="mdui-m-y-5 mdui-typo">
+                <div class="simple-content-end mdui-valign">
+                    最后修改时间: <%= page.updated.format(config.date_format + " " + config.time_format) %>
+                    <br>
+                    原始链接: 
+                </div>
+            </div>
+
+            <%# author & donation %>
+            <div class="mdui-center mdui-text-center simple-post-author">
+                <p>
+                    <img class="mdui-img-circle" src="<%= config.avatar %>"/>
+                    <br>
+                    <span class="mdui-typo-title"><%= config.author %></span>
+                    <br>
+                    <br>
+                    <button class="mdui-btn mdui-ripple simple-donation-btn" mdui-dialog="{target: '#simple-donation'}">
+                        <i class="mdui-icon mdui-icon-left material-icons">&#xe8dc;</i>稀罕作者
+                    </button>
+                </p>
+            </div>
+
+            <%# divider %>
+            <div class="mdui-divider mdui-m-t-5 mdui-m-b-1"></div>
+
+            <%# share %>
+            <div class="mdui-row">
+                <div class="mdui-col-md-1 mdui-col-offset-md-11 mdui-col-xs-1 mdui-col-offset-xs-11 simple-share">
+                    <button class="mdui-btn mdui-ripple mdui-fab">
+                        <i class="mdui-icon material-icons mdui-color-theme-accent">&#xe80d;</i>
+                    </button>
+                </div>
+            </div>
+
+            <%# tags %>
+            <% if(page.tags && page.tags.length) { %>
+                <div class="mdui-m-b-2">
+                <% page.tags.each(function(tag, i) { 
+                    var color = 'mdui-color-' + theme.tags.colors[i % theme.tags.colors.length]; %>    
+                %>
+                    <a class="mdui-btn mdui-btn-dense mdui-hoverable <%= color %> simple-article-tags">
+                        <%- tag.name %>
+                    </a>
+                <% }); %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%# prev & next page %>
+<div class="mdui-row mdui-p-y-1">
+    <%# prev page %>
+    <div class="mdui-col-md-4 mdui-col-offset-md-1 mdui-col-xs-6 mdui-text-left mdui-typo">
+    <% if(page.prev) { %>
+        <a href="<%= page.prev.path %>"><label class="label-post-prev">☜</label><%= page.prev.title %></a>
+    <% } %>
+    </div>
+
+    <%# next page %>
+    <% if(page.next) { %>
+        <div class="mdui-col-md-3 mdui-col-xs-6 mdui-text-right mdui-typo">
+            <a href="<%= page.next.path %>"><%= page.next.title %><label class="label-post-next">☞</label></a>
+        </div>
+    <% } %>
+</div>
+
+<%# comments %>
+<div class="mdui-row mdui-p-t-1 mdui-p-b-3">
+    <div class="mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12 mdui-col-offset-xs-0 mdui-shadow-12">
+        <%- partial('_partial/comment') %>
+    </div>
+</div>
+<%- js('js/post.js') %>

@@ -1,0 +1,56 @@
+<%# archive page(archive, categories and tags pages will use this page) %>
+
+<%
+var index = 0;
+site.tags.each(function(tag, i) {
+    if(page.tag === tag.name){ 
+        index = i;
+    }
+});
+%>
+
+<div class="mdui-row simple-archive-header">
+    <div class="mdui-col-xs-10 mdui-col-offset-xs-1 mdui-valign simple-archive-header-inner">
+        <div class="mdui-typo-display-2 mdui-text-color-white" id="div-archive-title">Tags: <%= page.tag %></div>
+    </div>
+</div>
+<div class="mdui-row simple-archive-name">
+    <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-valign simple-archive-name-inner">
+        <a href="/tags" class="mdui-btn">All</a>
+        <%
+            site.tags.each(function(tag, i) {
+                if (i > index - 2 && i < index + 10) {
+                    var color = '';
+                    if (page.tag === tag.name) {
+                        color = 'simple-tag-current'
+                    } else {
+                        color = '';
+                    }
+                    %>
+                    <a href="/tags/<%=tag.name%>" class="mdui-btn <%= color %>"><%= tag.name %></a>
+                    <%
+                }
+            });
+        %>
+    </div>
+</div>
+
+<%  var posts = [];
+    page.posts.each(function(post){
+        posts.push(post);
+    });
+    var sortPosts = _[_.orderBy ? 'orderBy' : 'sortByOrder'](posts, ['date'], ['desc']);
+%>
+<div class="mdui-row simple-height">
+    <div class="mdui-row">
+        <% sortPosts.forEach(function(post, i) {
+            var offset = 'mdui-col-offset-md-2';
+            if (i % 2 === 1) {
+                offset = '';
+            } %>
+            <div class="mdui-col-md-4 <%= offset %> mdui-col-xs-12">
+                <%- partial('_partial/article-excerpt', {item: post, hide_excerpt: true}) %>
+            </div>
+        <% }); %>
+    </div>
+</div>

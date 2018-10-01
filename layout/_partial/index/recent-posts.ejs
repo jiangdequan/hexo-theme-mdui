@@ -1,0 +1,28 @@
+<%  var posts = [];
+    page.posts.each(function(post){
+        posts.push(post);
+    });
+    var sortPosts = _[_.orderBy ? 'orderBy' : 'sortByOrder'](posts, ['date'], ['desc']);
+%>
+
+
+<div class="mdui-card mdui-hoverable simple-recent-posts">
+    <div class="mdui-card-header">
+        <h3><i class="mdui-list-item-icon mdui-icon ion-ios-book"></i> 最新发布</h3>
+    </div>
+    <div class="mdui-card-content mdui-typo">
+        <% sortPosts.forEach(function(item, i) {
+            if (i > theme.recent.posts - 1) {
+                return;
+            }
+        %>
+            <a href="<%- config.root %><%- item.path %>" class="mdui-text-color-theme">
+                <%- item.title %>
+            </a>
+            <% if (i < theme.recent.posts - 1 && sortPosts.length > theme.recent.posts) { %>
+                <div class="mdui-divider mdui-m-y-1"></div>
+            <% } %>
+        <% });%>
+    </div>
+</div>
+<br>

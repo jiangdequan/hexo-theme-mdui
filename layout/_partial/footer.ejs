@@ -1,0 +1,19 @@
+<footer class="footer mdui-color-theme mdui-text-center">
+    <span>
+        <%- config.author %> &copy;
+        <% if (config.since_year && config.since_year < date(new Date(), 'YYYY')) {%>
+            <%- config.since_year %> -
+        <% } %>
+        <%- date(new Date(), 'YYYY') %>
+    </span>
+    .
+    <span>Power by 
+        <a href="http://hexo.io/" target="_blank">
+            <em>Hexo</em>
+        </a>
+        Theme
+        <a href="https://github.com/jiangdequan/hexo-theme-mdui" target="_blank">
+            <em>mdui</em>
+        </a>
+    </span>
+</footer>

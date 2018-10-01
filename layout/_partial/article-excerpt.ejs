@@ -1,0 +1,46 @@
+<%# article list %>
+
+<div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-content mdui-typo">
+        <%# create date of article %>
+        <small class="mdui-typo-body-2-opacity">
+            <%= item.date.format(config.date_format) %>
+        </small>
+
+        <%# title of article %>
+        <div class="mdui-typo-headline mdui-text-color-theme mdui-m-b-2 mdui-m-t-1">
+            <a href="<%- config.root %><%- item.path %>" class="mdui-text-color-theme" style="white-space:nowrap;font-size:20px;">
+                <%- item.title %>
+            </a>
+        </div>
+
+        <%# excerpt of article %>
+        <% if(!hide_excerpt) { %>
+            <div class="mdui-m-b-1">
+                <% if(theme.excerpt.render) { %>
+                    <%- item.excerpt || item.content %>
+                <% } else { %>
+                    <%- item.excerpt ? strip_html(item.excerpt) : truncate(strip_html(item.content), {
+                        length: theme.excerpt.length
+                    }) %>
+                <% } %>
+                <br>
+                <a href="<%= item.path %>"><%= theme.excerpt.link %></a>
+            </div>
+        <% } %>
+
+        <div class="mdui-divider mdui-m-b-1"></div>
+
+        <%# tags of article %>
+        <% if(item.tags && item.tags.length){ %>
+            <% item.tags.each(function(tag, i){ 
+                var color = 'mdui-color-' + theme.tags.colors[i % theme.tags.colors.length]; %>
+            %>
+                <a class="mdui-btn mdui-btn-dense mdui-hoverable <%= color %> simple-article-tags">
+                    <%- tag.name %>
+                </a>
+            <% }); %>
+        <% } %>
+    </div>
+</div>
+<br>

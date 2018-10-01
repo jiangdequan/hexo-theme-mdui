@@ -1,0 +1,459 @@
+/**
+ * scroll bar
+ */
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: inherit;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b6b6b6;
+    border: 1px solid #fff;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #9d9d9d;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #838383;
+}
+
+/**
+ * body
+ */
+body {
+    background: #f6f6f6 !important;
+    overflow-x: hidden;
+}
+
+/**
+ * header
+ */
+.simple-appbar {
+    z-index: 1000;
+    width: 100%;
+}
+
+.simple-searchbar {
+    color: white;
+}
+
+.simple-header-title-cls {
+    width: 100%;
+}
+
+/**
+ * menu
+ */
+.simple-menu-cls img {
+    height: 76px;
+    width: 76px;
+    border: #fff 2px solid;
+}
+
+.simple-menu-cls .mdui-typo-title {
+    color: #fff;
+}
+
+.simple-menu-cls p {
+    -webkit-margin-before: 0.3em;
+    font-size: 13px;
+}
+
+.simple-menu-cls a,
+.simple-menu-cls .mdui-list-item {
+    text-decoration: none;
+    color: #727272 !important;
+    font-weight: 500;
+    width: 100%;
+}
+
+.simple-menu-cls a:hover,
+.simple-menu-cls .mdui-list-item:hover {
+    text-decoration: none !important;
+    color: #3f51b5 !important;
+}
+
+.simple-menu-cls .mdui-list-item-content {
+    padding-left: 10px;
+    font-size: 12px;
+    font-weight: bolder;
+}
+
+.simple-menu-author {
+    height: 160px;
+    width: 100%;
+    background: #3f51b5 !important;
+    padding-left: 20px;
+    padding-top: 40px;
+    color: #c5cae9
+}
+
+#busuanzi_container_page_pv {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+#busuanzi_container_page_pv del {
+    opacity: 0.4;
+}
+
+#busuanzi_value_page_pv {
+    color: #3f51b5;
+}
+
+/**
+ * search
+ */
+.simple-search-result-cls em {
+    color: red;
+}
+
+/**
+ * override
+ */
+.mdui-container-fluid {
+    margin-right: -1px;
+    padding: 0;
+}
+
+.mdui-row {
+    margin-left: 1px;
+    margin-right: 1px;
+    padding: 0;
+}
+
+.mdui-appbar {
+    height: 50px !important;
+}
+
+.mdui-toolbar {
+    height: 50px !important;
+    line-height: 50px !important;
+}
+
+.mdui-bottom-nav {
+    height: 50px !important;
+    font-size: 13px;
+}
+
+.mdui-card {
+    border-radius: 4px !important;
+}
+
+.mdui-drawer-body-right {
+    padding-right: 0px !important;
+}
+
+.mdui-divider {
+    margin: -1px -24px 0 -24px;
+}
+
+/**
+ * scroll button
+ */
+.simple-scroll-btn-cls {
+    z-index: 99999;
+    display: none;
+}
+
+/**
+ * footer
+ */
+.footer {
+    font-size: 13px;
+    height: 45px;
+    line-height: 45px;
+}
+
+.footer span {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/**
+ * index page
+ */
+.simple-right-panel .mdui-card-header {
+    height: 36px;
+    padding: 0 16px 0 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+}
+
+.simple-right-panel h3 {
+    opacity: 0.7;
+}
+
+.simple-hot-tags a {
+    color: white;
+}
+
+.simple-hot-tags {
+    min-width: 30px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 28px;
+    color: white !important;
+    margin-bottom: 5px;
+}
+
+.simple-latest-message .mdui-text-right {
+    height: 20px;
+    margin-right: 6px;
+    margin-bottom: 2px;
+}
+
+.simple-recent-posts .mdui-divider {
+    margin-right: 1px;
+    margin-left: 1px;
+}
+
+.simple-recent-posts a {
+    font-weight: bolder;
+}
+
+/**
+ * pagination
+ */
+.simple-pagination .mdui-btn {
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
+    line-height: 34px;
+    padding: 0;
+    margin-left: 4px;
+    color: #727272;
+    background: #f6f6f6;
+}
+
+.simple-pagination a:hover {
+    background: #dadada;
+    color: #3f51b5;
+}
+
+.simple-pagination .next,
+.simple-pagination .prev,
+.label-post-prev,
+.label-post-next {
+    font-size: 30px;
+}
+
+.simple-pagination .current {
+    background: #3f51b5;
+    color: #fff;
+}
+
+/**
+ * 
+ */
+.simple-article-tags {
+    min-width: 30px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 28px;
+    color: white !important;
+}
+
+.simple-article-tags,
+.simple-article-tags:hover,
+.simple-hot-tags,
+.simple-hot-tags:hover {
+    text-decoration: none !important;
+}
+
+/**
+ * post page
+ */
+.simple-post-header {
+    z-index: 1000;
+    width: 100%;
+    height: 150px;
+    background: #3f51b5;
+    margin-top: -20px;
+    margin-left: -1px;
+    margin-right: -4px;
+}
+
+.simple-post-cls h1 {
+    margin-top: 0.6em;
+}
+
+.simple-toc-cls {
+    width: 300px;
+    padding-top: 120px;
+}
+
+.post-toc-wrap {
+    position: fixed;
+    overflow-x: hidden;
+}
+
+.post-toc-wrap h4 {
+    padding: 0 0 0 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #727272;
+}
+
+.post-toc-wrap ol,
+.post-toc-wrap ul {
+    list-style: none;
+    margin: 0 0 0 0;
+}
+
+.post-toc {
+    display: inline-block;
+    padding: 0;
+    font-size: 13px;
+}
+
+.post-toc .post-toc-item {
+    position: relative;
+}
+
+.post-toc-item {
+    font-weight: 400;
+    color: #727272;
+}
+
+.post-toc-item a {
+    font-weight: 400;
+    color: #727272;
+    text-decoration: none;
+}
+
+.post-toc-item a:hover {
+    color: #303f9f;
+    text-decoration: underline;
+}
+
+.post-toc-item li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.post-toc-child {
+    padding-left: 26px;
+}
+
+.post-toc-link {
+    line-height: 20px;
+}
+
+.toc-active {
+    font-weight: 600 !important;
+    color: #3f51b5 !important;
+}
+
+.simple-content-end {
+    background: #f1f3fa;
+    padding-left: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    height: 70px;
+    color: #727272;
+}
+
+.simple-post-author img {
+    width: 100px;
+    height: 100px;
+}
+
+.simple-donation-btn {
+    width: 108px;
+    min-width: 100px;
+    height: 30px;
+    line-height: 33px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #f44336;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: #f44336 !important;
+}
+
+.simple-donation-btn:hover {
+    background: #fff !important;
+}
+
+.simple-donation-btn i {
+    height: 30px !important;
+    line-height: 30px !important;
+}
+
+.simple-share {
+    width: 50px;
+    margin-top: -28px;
+    margin-right: 20px;
+    right: 20px;
+}
+
+.simple-share button {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 18px;
+    background-color: #eaecf7 !important;
+}
+
+.simple-share i {
+    width: 24px !important;
+    margin-top: 12px !important;
+    margin-left: 6px !important;
+    line-height: 12px !important;
+}
+
+.simple-share .mdui-color-theme-accent {
+    background-color: #eaecf7 !important;
+    color: #536dfe !important;
+}
+
+.simple-donation-cls img {
+    width: 200px;
+    height: 200px;
+}
+
+.simple-wechat-cls {
+    display: none;
+}
+
+.simple-toc-scroll {
+    width: 300px;
+    padding-top: 20px;
+}
+
+/**
+ * archive
+ */
+ .simple-archive-header {
+    background: #3f51b5;
+    margin:-14px -1px 10px -1px;
+    height: 100px;
+ }
+ .simple-archive-header-inner {
+    height: 100px;
+ }
+ .simple-archive-name {
+    background: #3f51b5;
+    margin:-14px -1px 10px -1px;
+    height: 50px;
+ }
+ .simple-archive-name-inner {
+    height: 50px;
+ }
+
+.simple-tag-current {
+    color: #ff4081 !important;
+}
+
+.simple-archive-name .mdui-btn {
+    min-width: 40px;
+    color: white;
+}

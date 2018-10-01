@@ -1,0 +1,24 @@
+<%# archive page(archive, categories and tags pages will use this page) %>
+
+<%
+    var title = '';
+    if (page.category) {
+        title = page.category;%>
+        <%- partial('_partial/archive/categories') %>
+    <%}
+    if (page.tag) {
+        title = page.tag;%>
+        <%- partial('_partial/archive/tags') %>
+    <%}
+    if (page.archive) {
+        if (page.year) {
+            title = page.year + (page.month ? '/' + page.month : '');
+        } else {
+            title = "Archives";
+        }%>
+        <%- partial('_partial/archive/index') %>
+    <%}
+%>
+
+<%- partial('_partial/pagination') %>
+<%- js('js/archive.js') %>

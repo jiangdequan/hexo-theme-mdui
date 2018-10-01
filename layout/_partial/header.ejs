@@ -1,0 +1,42 @@
+<%# top appbar %>
+
+<%
+    var appbarClass = "mdui-appbar";
+    if(page.tag || page.category || page.archive || page.title) {
+        appbarClass = "simple-appbar";
+    }
+%>
+
+<div class="<%= appbarClass %> mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-indigo">
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon" id="simple-toggle-menu">
+            <i class="mdui-icon material-icons">&#xe5d2;</i>
+        </a>
+
+        <% if(page.title !== undefined || page.category || page.tag || page.archive) { %>
+            <a href="/" class="mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">&#xe88a;</i>
+            </a>
+        <% } %>
+
+        <div class="mdui-text-center simple-header-title-cls" id="simple-header-title">
+            <% if(page.tag || page.category || page.archive || page.title) { %>
+                <small href="javascript:;" class="mdui-typo-title"></small>
+            <% } else {%>
+                <small class="mdui-typo-title"><%= config.title %> | <%= config.subtitle %></small>
+            <% } %>
+        </div>
+
+        <div class="mdui-toolbar-spacer"></div>
+
+        <div class="mdui-textfield mdui-textfield-expandable mdui-float-right simple-searchbar">
+            <button class="mdui-textfield-icon mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">search</i>
+            </button>
+            <input class="mdui-textfield-input" type="text" placeholder="Search" id="simple-input-search"/>
+            <button class="mdui-textfield-close mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">close</i>
+            </button>
+        </div>
+    </div>
+</div>

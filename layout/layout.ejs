@@ -1,0 +1,41 @@
+<%# common layout page %>
+
+<!DOCTYPE html>
+<html>
+    <%# Head tag %>
+    <%- partial('_partial/head') %>
+
+    <%
+        var tocClass = "";
+        if(page.content) {
+            tocClass = " mdui-drawer-body-right";
+        }
+    %>
+
+    <body class="mdui-theme-primary-indigo mdui-theme-accent-indigo mdui-appbar-with-toolbar<%= tocClass %>">
+        <%# Header %>
+        <%- partial('_partial/header', { page: page }) %>
+
+        <%# Menu %>
+        <%- partial('_partial/menu') %>
+
+        <%# Content %>
+        <div class="mdui-container-fluid">
+            <%- body %>
+        </div>
+
+        <%# Footer %>
+        <%- partial('_partial/footer') %>
+
+        <%# Scroll Top Button %>
+        <button id="simple-scroll-btn" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-fab-mini mdui-color-theme-accent simple-scroll-btn-cls">
+            <i class="mdui-icon material-icons">&#xe5d8;</i>
+        </button>
+
+        <%# Search %>
+        <%- partial('_partial/search') %>
+
+        <%# Load scripts at the end of the document %>
+        <%- partial('_partial/after-footer') %>
+    </body>
+</html>

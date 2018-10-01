@@ -1,0 +1,58 @@
+<div class="mdui-dialog simple-search-result-cls" id="simple-search-result">
+    <div class="mdui-dialog-content">
+        <div class="mdui-list"></div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var inst = new mdui.Dialog('#simple-search-result');
+        var client = algoliasearch('<%- theme.algolia.applicationID %>', '<%- theme.algolia.apiKey %>');
+        var index = client.initIndex('<%- theme.algolia.indexName %>');
+        var resultObj = $("#simple-search-result .mdui-list");
+        var prevText;
+    
+        $("#simple-input-search").keyup(function() {
+            if (event.keyCode !== 13) {
+                return;
+            }
+            var text = $(this).val();
+            if (prevText === text) {
+                inst.open();
+                return;
+            }
+            resultObj.empty();
+            if ("" === text) {
+                return;
+            }
+            // only query string
+            index.search({
+                    query: text
+                }, function searchDone(err, content) {
+                    if (err) {
+                        throw err;
+                        resultObj.append('<label class="mdui-list-item mdui-ripple"><img src="/images/algolia_logo.svg" style="height:18px;"/>&nbsp;&nbsp;  Error!</label>');
+                    }
+                    prevText = text;
+    
+                    var hits = content.hits;
+    
+                    var nbHits = content.nbHits;
+                    var timeMs = content.processingTimeMS;
+                    resultObj.append('<label class="mdui-list-item mdui-ripple"><img src="/images/algolia_logo.svg" style="height:18px;"/>&nbsp;&nbsp;  ' + nbHits + ' results found in ' + timeMs + ' ms</label>');
+                    if (undefined === hits || null === hits || '' === hits || hits.length < 1) {
+                        inst.open();
+                        return;
+                    }
+    
+                    for (var i = 0; i < hits.length; i++) {
+                        var path = hits[i].slug;
+                        var title = hits[i]._highlightResult.title.value;
+                        resultObj.append('<a href="/' + path + '" class="mdui-list-item mdui-ripple">' + title + '</a>');
+                    }
+                    inst.open();
+                }
+            );
+        });
+    });
+</script>
