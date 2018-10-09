@@ -11,6 +11,7 @@ appbar:
   title: "Title"
   search: false
 
+# menu
 menu:
   home: /
   archives: /archives
@@ -19,20 +20,22 @@ menu:
   github: https://github.com/jiangdequan
   about: /about
 
-# 文章截断
+# excerpt
 excerpt:
   render: false
   length: 200
   link: Read More
 
+# the url of messages
 latest:
   message:
     url: https://raw.githubusercontent.com/jiangdequan/jiangdequan.github.io/message.json
 
+# recent posts count
 recent:
   posts: 10
 
-# https://www.mdui.org/docs/color
+# colors of tags(https://www.mdui.org/docs/color)
 tags:
   colors:
     - green
@@ -43,9 +46,14 @@ tags:
     - red
     - indigo
 
+# algolia search(https://www.algolia.com/users/sign_in)
 algolia:
   applicationID: 'your applicationID'
   apiKey: 'your apiKey'
   adminApiKey: 'your adminApiKey'
   indexName: 'your index name'
   chunkSize: 5000
+
+email: jiangdequan1314@gmail.com
+avatar: /images/avatar.png
+since_year: 2013

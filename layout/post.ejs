@@ -68,14 +68,14 @@
                 <div class="simple-content-end mdui-valign">
                     最后修改时间: <%= page.updated.format(config.date_format + " " + config.time_format) %>
                     <br>
-                    原始链接: 
+                    原始链接: <%= page.original_link %>
                 </div>
             </div>
 
             <%# author & donation %>
             <div class="mdui-center mdui-text-center simple-post-author">
                 <p>
-                    <img class="mdui-img-circle" src="<%= config.avatar %>"/>
+                    <img class="mdui-img-circle" src="<%= theme.avatar %>"/>
                     <br>
                     <span class="mdui-typo-title"><%= config.author %></span>
                     <br>
@@ -104,7 +104,7 @@
                 <% page.tags.each(function(tag, i) { 
                     var color = 'mdui-color-' + theme.tags.colors[i % theme.tags.colors.length]; %>    
                 %>
-                    <a class="mdui-btn mdui-btn-dense mdui-hoverable <%= color %> simple-article-tags">
+                    <a href="<%- config.root %>tags/<%= tag.name %>" class="mdui-btn mdui-btn-dense mdui-hoverable <%= color %> simple-article-tags">
                         <%- tag.name %>
                     </a>
                 <% }); %>
@@ -119,14 +119,14 @@
     <%# prev page %>
     <div class="mdui-col-md-4 mdui-col-offset-md-1 mdui-col-xs-6 mdui-text-left mdui-typo">
     <% if(page.prev) { %>
-        <a href="<%= page.prev.path %>"><label class="label-post-prev">☜</label><%= page.prev.title %></a>
+        <a href="<%- config.root %><%= page.prev.path %>"><label class="label-post-prev">☜</label><%= page.prev.title %></a>
     <% } %>
     </div>
 
     <%# next page %>
     <% if(page.next) { %>
         <div class="mdui-col-md-3 mdui-col-xs-6 mdui-text-right mdui-typo">
-            <a href="<%= page.next.path %>"><%= page.next.title %><label class="label-post-next">☞</label></a>
+            <a href="<%- config.root %><%= page.next.path %>"><%= page.next.title %><label class="label-post-next">☞</label></a>
         </div>
     <% } %>
 </div>

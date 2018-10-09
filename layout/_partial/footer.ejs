@@ -1,8 +1,8 @@
 <footer class="footer mdui-color-theme mdui-text-center">
     <span>
         <%- config.author %> &copy;
-        <% if (config.since_year && config.since_year < date(new Date(), 'YYYY')) {%>
-            <%- config.since_year %> -
+        <% if (theme.since_year && theme.since_year < date(new Date(), 'YYYY')) {%>
+            <%- theme.since_year %> -
         <% } %>
         <%- date(new Date(), 'YYYY') %>
     </span>
