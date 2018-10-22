@@ -1,32 +1,44 @@
 <%# tags page %>
 
 <div class="mdui-row simple-archive-header">
-    <div class="mdui-col-xs-10 mdui-col-offset-xs-1 mdui-valign simple-archive-header-inner">
+    <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-col-xs-12 mdui-valign simple-archive-header-inner">
         <div class="mdui-typo-display-2 mdui-text-color-white" id="simple-archive-title">Tags</div>
     </div>
 </div>
 <div class="mdui-row simple-archive-name">
-    <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-valign simple-archive-name-inner">
+    <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-col-xs-12 mdui-valign simple-archive-name-inner">
         <a href="/tags" class="mdui-btn simple-archive-btn" style="color:#ff4081;">All</a>
         <% site.tags.each(function(tag, i) {
             if(i < 10){ %>
                 <a href="/tags/<%=tag.name%>" class="mdui-btn simple-archive-btn"><%=tag.name %></a>
             <% }
         }); %>
+        <a href="#" class="mdui-btn simple-archive-btn" id="simple-all">…</a>
+    </div>
+</div>
+
+<div class="mdui-row simple-all-links" style="margin-top: 10px;margin-bottom:30px;z-index:9999;display:none;">
+    <div class="mdui-card mdui-col-md-10 mdui-col-offset-md-1 mdui-col-xs-12 mdui-shadow-12">
+        <div class="mdui-card-content mdui-typo">
+            <% site.tags.each(function(tag, i) { %>
+                <a href="/tags/<%=tag.name%>" style="margin-right: 10px;margin-bottom: 10px;"><%=tag.name %></a>
+            <% }); %>
+        </div>
     </div>
 </div>
 
 <div class="mdui-row simple-height">
-    <div class="mdui-row" id="tag-all">
-        <% site.posts.each(function(post, i) {
-            var offset = 'mdui-col-offset-md-2';
-            if (i % 2 === 1) {
-                offset = '';
-            } %>
-            <div class="mdui-col-md-4 <%= offset %> mdui-col-xs-12">
-                <%- partial('_partial/article-excerpt', {item: post, hide_excerpt: true}) %>
-            </div>
+    <div class="mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12" id="tag-all">
+        <% site.posts.each(function(post, i) { %>
+            <%- partial('_partial/article-excerpt', {item: post, hide_excerpt: true}) %>
         <% }); %>
+    </div>
+    <%# useful infomation panels %>
+    <div class="mdui-col-md-3 mdui-col-xs-12 simple-right-panel">
+        <%- partial('_partial/index/latest-message') %>
+        <%- partial('_partial/index/hot-tags') %>
+        <%- partial('_partial/index/recent-posts') %>
+        <%- partial('_partial/index/wechat-public-number') %>
     </div>
 </div>
 <%- js('js/archive.js') %>

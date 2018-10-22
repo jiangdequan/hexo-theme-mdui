@@ -1,7 +1,7 @@
 <%# archive page(archive, categories and tags pages will use this page) %>
 
 <div class="mdui-row simple-archive-header">
-    <div class="mdui-col-xs-10 mdui-col-offset-xs-1 mdui-valign simple-archive-header-inner">
+    <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-col-xs-12 mdui-valign simple-archive-header-inner">
         <div class="mdui-typo-display-2 mdui-text-color-white" id="simple-archive-title">Archives</div>
     </div>
 </div>
@@ -14,35 +14,27 @@
 %>
 
 <div class="mdui-row simple-height">
-
-<%  var prevYear = 0, prevMonth = 0, count = -1;
-    sortPosts.forEach(function(post, i){
-        var postDate = post.date;
-        var currentYear = postDate.year();
-        var currentMonth = postDate.month();
-        if(currentYear !== prevYear || currentMonth !== prevMonth) {
-            prevYear = currentYear;
-            prevMonth = currentMonth;
-            count = -1;
-            if(i > 0) { %>
-                </div> 
-            <% } %>
-            <div class="mdui-row">
-                <div class="mdui-col-md-4 mdui-col-offset-md-2 mdui-col-xs-12">
+    <div class="mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12">
+        <% var prevYear = 0, prevMonth = 0;
+            sortPosts.forEach(function(post, i){
+                var postDate = post.date;
+                var currentYear = postDate.year();
+                var currentMonth = postDate.month();
+                if(currentYear !== prevYear || currentMonth !== prevMonth) {
+                    prevYear = currentYear;
+                    prevMonth = currentMonth;
+                %>
                     <h3 class="archive-separator"><%=postDate.format('MMMM, YYYY')%></h3>
-                </div>
-            </div>
-            <div class="mdui-row">
-        <%}
-        count++;
-        var offset = " mdui-col-offset-md-2 ";
-        if (count % 2 === 1) {
-            offset = " ";
-        }
+                <% } %>
+                    <%- partial('_partial/article-excerpt', {item: post, date_format: 'MMM D', hide_excerpt: true}) %>
+            <% });
         %>
-        <div class="mdui-col-md-4<%= offset %>mdui-col-xs-12">
-            <%- partial('_partial/article-excerpt', {item: post, date_format: 'MMM D', hide_excerpt: true}) %>
-        </div>
-    <% }); %>
+    </div>
+    <%# useful infomation panels %>
+    <div class="mdui-col-md-3 mdui-col-xs-12 simple-right-panel">
+        <%- partial('_partial/index/latest-message') %>
+        <%- partial('_partial/index/hot-tags') %>
+        <%- partial('_partial/index/recent-posts') %>
+        <%- partial('_partial/index/wechat-public-number') %>
     </div>
 </div>

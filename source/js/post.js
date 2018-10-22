@@ -71,4 +71,8 @@ $(document).ready(function () {
             $("#simple-wechat").hide();
         }
     });
+
+    $("#simple-post-share .simple-post-share-btn").click(function() {
+        $(".simple-post-share-detail").toggle();
+    });
 });

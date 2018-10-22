@@ -1,21 +1,28 @@
 <%# archive page(archive, categories and tags pages will use this page) %>
 
 <%
+// The index of current tag in all tags
 var index = 0;
 site.tags.each(function(tag, i) {
-    if(page.tag === tag.name){ 
+    // find current tag in all tags
+    if(page.tag === tag.name) {
+        // save the index
         index = i;
+        return;
     }
 });
 %>
 
+<%# archive header %>
 <div class="mdui-row simple-archive-header">
-    <div class="mdui-col-xs-10 mdui-col-offset-xs-1 mdui-valign simple-archive-header-inner">
+    <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-col-xs-12 mdui-valign simple-archive-header-inner">
         <div class="mdui-typo-display-2 mdui-text-color-white" id="simple-archive-title">Tags: <%= page.tag %></div>
     </div>
 </div>
+
+<%# tab of tags %>
 <div class="mdui-row simple-archive-name">
-    <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-valign simple-archive-name-inner">
+    <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-col-xs-12 mdui-valign simple-archive-name-inner">
         <a href="/tags" class="mdui-btn">All</a>
         <%
             site.tags.each(function(tag, i) {
@@ -35,22 +42,26 @@ site.tags.each(function(tag, i) {
     </div>
 </div>
 
+
 <%  var posts = [];
     page.posts.each(function(post){
         posts.push(post);
     });
+    // sort all articles
     var sortPosts = _[_.orderBy ? 'orderBy' : 'sortByOrder'](posts, ['date'], ['desc']);
 %>
+
 <div class="mdui-row simple-height">
-    <div class="mdui-row">
-        <% sortPosts.forEach(function(post, i) {
-            var offset = 'mdui-col-offset-md-2';
-            if (i % 2 === 1) {
-                offset = '';
-            } %>
-            <div class="mdui-col-md-4 <%= offset %> mdui-col-xs-12">
-                <%- partial('_partial/article-excerpt', {item: post, hide_excerpt: true}) %>
-            </div>
+    <div class="mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12">
+        <% sortPosts.forEach(function(post, i) { %>
+            <%- partial('_partial/article-excerpt', {item: post, hide_excerpt: true}) %>
         <% }); %>
+    </div>
+    <%# useful infomation panels %>
+    <div class="mdui-col-md-3 mdui-col-xs-12 simple-right-panel">
+        <%- partial('_partial/index/latest-message') %>
+        <%- partial('_partial/index/hot-tags') %>
+        <%- partial('_partial/index/recent-posts') %>
+        <%- partial('_partial/index/wechat-public-number') %>
     </div>
 </div>

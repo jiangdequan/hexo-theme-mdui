@@ -29,4 +29,8 @@ $(document).ready(function () {
 
     $('.simple-pagination span').addClass('mdui-btn');
     $('.simple-pagination a').addClass('mdui-btn');
+
+    $('.simple-header-share').click(function() {
+        $('.simple-header-share-pane').toggle();
+    });
 });

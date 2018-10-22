@@ -2,11 +2,17 @@
 
 <%# toc %>
 <div class="mdui-drawer mdui-drawer-right simple-toc-cls" id="simple-toc">
-    <nav class="post-toc-wrap post-toc-shrink">
-        <h4>TOC</h4>
-        <% if (page.toc != false){ %>
-            <%- toc(page.content, {list_number: false, class: "post-toc"}) %>
-        <% } %>
+    <nav class="post-toc-wrap post-toc-shrink" style="width:240px;">
+        <div class="mdui-card mdui-hoverable">
+            <div class="mdui-card-header">
+                <h3><i class="mdui-list-item-icon mdui-icon ion-ios-flame"></i> TOC</h3>
+            </div>
+            <div class="mdui-card-content" style="height:400px;overflow-y: auto;overflow-x:hidden;">
+                <% if (page.toc != false){ %>
+                    <%- toc(page.content, {list_number: false, class: "post-toc"}) %>
+                <% } %>
+            </div>
+        </div>
     </nav>
 </div>
 
@@ -39,7 +45,7 @@
 
 <%# content %>
 <div class="mdui-row" style="margin-top: -110px;z-index:9999;">
-    <div class="mdui-card mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12 mdui-col-offset-xs-0 mdui-shadow-12 simple-post-cls" id="simple-post">
+    <div class="mdui-card mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12 mdui-shadow-12 simple-post-cls" id="simple-post">
         <div class="mdui-card-content mdui-typo">
             <%# title %>
             <h1><%- page.title %></h1>
@@ -91,8 +97,28 @@
 
             <%# share %>
             <div class="mdui-row">
-                <div class="mdui-col-md-1 mdui-col-offset-md-11 mdui-col-xs-1 mdui-col-offset-xs-11 simple-share">
-                    <button class="mdui-btn mdui-ripple mdui-fab">
+                <div class="mdui-col-md-1 mdui-col-offset-md-11 mdui-col-xs-1 mdui-col-offset-xs-11 simple-share simple-post-share-detail" style="margin-top: -300px;display:none;">
+                    <a href="<%= theme.post.share.url.twitter %>?text=<%= page.title %>&url=<%= theme.url %><%= page.path %>&via=<%= theme.url %>" data-title="分享到Twitter" target="_blank" class="mdui-fab mdui-ripple mdui-color-light-blue mdui-valign mdui-text-center simple-post-share-btn">
+                        <i class="fab fa-twitter fa-sm"></i>
+                    </a>
+                    <a href="<%= theme.post.share.url.facebook %>?u=<%= theme.url %><%= page.path %>" alt="分享到FaceBook" target="_blank" class="mdui-fab mdui-ripple mdui-color-indigo mdui-valign mdui-text-center simple-post-share-btn">
+                        <i class="fab fa-facebook-f fa-sm"></i>
+                    </a>
+                    <a href="<%= theme.post.share.url.google_plus %>?url=<%= theme.url %><%= page.path %>" alt="分享到Google+" target="_blank" class="mdui-fab mdui-ripple mdui-color-deep-orange mdui-valign mdui-text-center simple-post-share-btn">
+                        <i class="fab fa-google-plus-g fa-sm"></i>
+                    </a>
+                    <a href="<%= theme.post.share.url.qq %>?url=<%= theme.url %><%= page.path %>&title=<%= page.title %>&source=truncate(strip_html(page.excerpt), { length: 80})" alt="分享到QQ" target="_blank" class="mdui-fab mdui-ripple mdui-color-blue mdui-valign mdui-text-center simple-post-share-btn">
+                        <i class="fab fa-qq fa-sm"></i>
+                    </a>
+                    <a href="<%= theme.post.share.url.weibo %>?url=<%= theme.url %><%= page.path %>&title=<%= page.title %>" alt="分享到微博" target="_blank" class="mdui-fab mdui-ripple mdui-color-red mdui-valign mdui-text-center simple-post-share-btn">
+                        <i class="fab fa-weibo fa-sm"></i>
+                    </a>
+                    <a href="javascript:;" alt="分享到微信" target="_blank" class="mdui-fab mdui-ripple mdui-color-green mdui-valign mdui-text-center simple-post-share-btn">
+                        <i class="fab fa-weixin fa-sm"></i>
+                    </a>
+                </div>
+                <div class="mdui-col-md-1 mdui-col-offset-md-11 mdui-col-xs-1 mdui-col-offset-xs-11 simple-share" id="simple-post-share">
+                    <button class="mdui-btn mdui-ripple mdui-fab simple-post-share-btn">
                         <i class="mdui-icon material-icons mdui-color-theme-accent">&#xe80d;</i>
                     </button>
                 </div>

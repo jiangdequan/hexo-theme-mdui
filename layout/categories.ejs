@@ -1,12 +1,12 @@
 <%# categories page %>
 
 <div class="mdui-row simple-archive-header">
-    <div class="mdui-col-xs-10 mdui-col-offset-xs-1 mdui-valign simple-archive-header-inner">
+    <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-col-xs-12 mdui-valign simple-archive-header-inner">
         <div class="mdui-typo-display-3 mdui-text-color-white" id="simple-archive-title">Categories</div>
     </div>
 </div>
 <div class="mdui-row simple-archive-name">
-    <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-valign simple-archive-name-inner">
+    <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-col-xs-12 mdui-valign simple-archive-name-inner">
         <a href="/categories" class="mdui-btn simple-archive-btn" style="color:#ff4081;">All</a>
         <% site.categories.each(function(category, i) {
             if(i < 10){ %>
@@ -17,17 +17,18 @@
 </div>
 
 <div class="mdui-row simple-height">
-    <div class="mdui-row" id="category-all">
-        <% site.posts.each(function(post, i) {
-            var offset = 'mdui-col-offset-md-2';
-            if (i % 2 === 1) {
-                offset = '';
-            }
-        %>
-        <div class="mdui-col-md-4 <%= offset %> mdui-col-xs-12">
+    <div class="mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12" id="category-all">
+        <% site.posts.each(function(post, i) { %>
             <%- partial('_partial/article-excerpt', {item: post, hide_excerpt: true}) %>
-        </div>
         <% }); %>
+    </div>
+    
+    <%# useful infomation panels %>
+    <div class="mdui-col-md-3 mdui-col-xs-12 simple-right-panel">
+        <%- partial('_partial/index/latest-message') %>
+        <%- partial('_partial/index/hot-tags') %>
+        <%- partial('_partial/index/recent-posts') %>
+        <%- partial('_partial/index/wechat-public-number') %>
     </div>
 </div>
 

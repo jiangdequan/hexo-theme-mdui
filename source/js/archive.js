@@ -17,7 +17,7 @@ $(document).ready(function () {
         }
         return height;
     }
-    autoMinHeight();
+    // autoMinHeight();
 
     var appbar = $(".simple-appbar");
     var title = $("#simple-archive-title").text();
@@ -42,5 +42,9 @@ $(document).ready(function () {
             }
             handled = false;
         }
+    });
+
+    $("#simple-all").click(function() {
+        $(".simple-all-links").toggle();
     });
 });
