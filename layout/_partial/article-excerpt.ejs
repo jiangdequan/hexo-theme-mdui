@@ -3,13 +3,23 @@
 <div class="mdui-card mdui-hoverable">
     <div class="mdui-card-content mdui-typo">
         <%# create date of article %>
-        <small class="mdui-typo-body-2-opacity">
-            <%= item.date.format(config.date_format) %>
-        </small>
+        <span class="simple-excerpt-date">
+            <i class="mdui-icon material-icons">&#xe916;</i> <label><%= item.date.format(config.date_format) %></label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <i class="mdui-icon material-icons">&#xe149;</i> <label>
+            <% item.categories.each(function(category, i) { %>
+                <a href="<%= url_for(category.path) %>"><%= category.name %></a>
+            <% }); %>
+            </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <i class="mdui-icon material-icons">&#xe24b;</i> <label><%= wordcount(item.content) %> 字</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <i class="mdui-icon material-icons">&#xe192;</i> <label><%= min2read(item.content) %> 分钟</label>
+        </span>
 
         <%# title of article %>
         <div class="mdui-typo-headline mdui-text-color-theme mdui-m-b-2 mdui-m-t-1">
-            <a href="<%- config.root %><%- item.path %>" class="mdui-text-color-theme" style="white-space:nowrap;font-size:20px;">
+            <a href="<%- url_for(item.path) %>" class="mdui-text-color-theme" style="white-space:nowrap;font-size:20px;">
                 <%- item.title %>
             </a>
         </div>
@@ -25,7 +35,7 @@
                     }) %>
                 <% } %>
                 <br>
-                <a href="<%= item.path %>"><%= theme.excerpt.link %></a>
+                <a href="<%= url_for(item.path) %>"><%= theme.excerpt.link %></a>
             </div>
         <% } %>
 
@@ -36,7 +46,7 @@
             <% item.tags.each(function(tag, i){ 
                 var color = 'mdui-color-' + theme.tags.colors[i % theme.tags.colors.length]; %>
             %>
-                <a href="<%- config.root %>tags/<%= tag.name %>" class="mdui-btn mdui-btn-dense mdui-hoverable <%= color %> simple-article-tags">
+                <a href="<%= url_for(tag.path) %>" class="mdui-btn mdui-btn-dense mdui-hoverable <%= color %> simple-article-tags">
                     <%- tag.name %>
                 </a>
             <% }); %>

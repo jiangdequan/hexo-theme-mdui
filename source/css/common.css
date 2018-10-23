@@ -36,16 +36,19 @@ body {
 /**
  * header
  */
- .simple-header-share-pane {
+.simple-header-share-pane {
     display: none;
 }
- .simple-header-share-pane a {
-     margin: 10px 10px 10px 10px;
- }
+
+.simple-header-share-pane a {
+    margin: 10px 10px 10px 10px;
+}
+
 .simple-header-share-pane i {
     color: white;
     margin-top: 7px;
 }
+
 .simple-appbar {
     z-index: 1000;
     width: 100%;
@@ -99,15 +102,19 @@ body {
     text-decoration: none !important;
     color: #3f51b5 !important;
 }
+
 .simple-menu-cls .mdui-typo-title a {
     color: white !important;
 }
+
 .simple-menu-cls .mdui-typo-title a .mdui-icon {
     font-size: 18px;
 }
+
 .simple-menu-cls .mdui-typo-title a:hover {
     text-decoration: none;
 }
+
 .simple-menu-cls .mdui-list-item-content {
     padding-left: 10px;
     font-size: 12px;
@@ -207,7 +214,8 @@ body {
 /**
  * index page
  */
-.simple-right-panel .mdui-card-header, #simple-toc .mdui-card-header {
+.simple-right-panel .mdui-card-header,
+#simple-toc .mdui-card-header {
     height: 36px;
     padding: 0 16px 0 16px;
     border-bottom: 1px solid rgba(0, 0, 0, .12);
@@ -279,6 +287,21 @@ body {
 /**
  * 
  */
+.simple-excerpt-date label {
+    font-size: 10px;
+    color: #999;
+}
+
+.simple-excerpt-date i {
+    font-size: 12px;
+    color: #999;
+}
+
+.simple-excerpt-date label a {
+    font-size: 10px;
+    color: #999 !important;
+}
+
 .simple-article-tags {
     min-width: 30px;
     height: 28px;
@@ -421,9 +444,11 @@ body {
     margin-right: 20px;
     right: 20px;
 }
+
 .simple-post-share-detail i {
     color: white;
 }
+
 .simple-post-share-btn {
     width: 36px;
     min-width: 36px;
@@ -432,24 +457,29 @@ body {
     border-radius: 18px;
     margin-bottom: 10px;
 }
+
 #simple-post-share button {
     background-color: #eaecf7 !important;
 }
+
 #simple-post-share i {
     width: 24px !important;
     margin-top: 12px !important;
     margin-left: 6px !important;
     line-height: 12px !important;
 }
+
 .simple-post-share-detail i {
     margin-left: 8px;
 }
+
 .simple-header-share-pane {
     z-index: 4999;
     position: fixed;
     right: 60px;
     top: 50px;
 }
+
 .simple-post-share-detail a:hover {
     text-decoration: none !important;
 }
@@ -476,29 +506,32 @@ body {
 /**
  * archive
  */
- .simple-archive-header {
+.simple-archive-header {
     background: #3f51b5;
-    margin:-14px -1px 10px -1px;
+    margin: -14px -1px 10px -1px;
     height: 100px;
- }
- .simple-archive-header-inner {
+}
+
+.simple-archive-header-inner {
     height: 100px;
- }
- .simple-archive-name {
+}
+
+.simple-archive-name {
     background: #3f51b5;
-    margin:-14px -1px 10px -1px;
+    margin: -14px -1px 10px -1px;
     height: 50px;
- }
- .simple-archive-name-inner {
+}
+
+.simple-archive-name-inner {
     height: 50px;
- }
+}
 
 .simple-tag-current {
     color: #ff4081 !important;
 }
 
 .simple-archive-name .mdui-btn {
-    width: 100%;
+    min-width: 60px;
     color: white;
     padding: 0 8px;
 }

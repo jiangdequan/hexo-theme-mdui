@@ -7,32 +7,33 @@
 </div>
 <div class="mdui-row simple-archive-name">
     <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-col-xs-12 mdui-valign simple-archive-name-inner">
-        <a href="/tags" class="mdui-btn simple-archive-btn" style="color:#ff4081;">All</a>
+        <a href="<%= config.root %>tags" class="mdui-btn simple-archive-btn" style="color:#ff4081;">All</a>
         <% site.tags.each(function(tag, i) {
             if(i < 10){ %>
-                <a href="/tags/<%=tag.name%>" class="mdui-btn simple-archive-btn"><%=tag.name %></a>
+                <a href="<%= url_for(tag.path) %>" class="mdui-btn simple-archive-btn"><%=tag.name %></a>
             <% }
         }); %>
-        <a href="#" class="mdui-btn simple-archive-btn" id="simple-all">…</a>
-    </div>
-</div>
-
-<div class="mdui-row simple-all-links" style="margin-top: 10px;margin-bottom:30px;z-index:9999;display:none;">
-    <div class="mdui-card mdui-col-md-10 mdui-col-offset-md-1 mdui-col-xs-12 mdui-shadow-12">
-        <div class="mdui-card-content mdui-typo">
-            <% site.tags.each(function(tag, i) { %>
-                <a href="/tags/<%=tag.name%>" style="margin-right: 10px;margin-bottom: 10px;"><%=tag.name %></a>
-            <% }); %>
-        </div>
+        <a href="javascript:;" class="mdui-btn simple-archive-btn" id="simple-all">…</a>
     </div>
 </div>
 
 <div class="mdui-row simple-height">
-    <div class="mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12" id="tag-all">
+    <div class="mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12 simple-archive-labels mdui-p-b-2" style="display:none;">
+        <div class="mdui-card mdui-shadow-12">
+            <div class="mdui-card-content mdui-typo">
+                <% site.tags.each(function(tag, i) {
+                    var color = 'mdui-color-' + theme.tags.colors[i % theme.tags.colors.length]; %>
+                    <a href="<%= url_for(tag.path) %>" class="mdui-btn mdui-btn-dense <%= color %> mdui-hoverable simple-hot-tags" style="margin-right: 10px;margin-bottom: 10px;"><%=tag.name %></a>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+    <div class="mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12 simple-archive-articles" id="tag-all">
         <% site.posts.each(function(post, i) { %>
             <%- partial('_partial/article-excerpt', {item: post, hide_excerpt: true}) %>
         <% }); %>
     </div>
+
     <%# useful infomation panels %>
     <div class="mdui-col-md-3 mdui-col-xs-12 simple-right-panel">
         <%- partial('_partial/index/latest-message') %>

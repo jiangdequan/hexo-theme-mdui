@@ -45,6 +45,21 @@ $(document).ready(function () {
     });
 
     $("#simple-all").click(function() {
-        $(".simple-all-links").toggle();
+        // if ($(".simple-archive-tags").is(":hidden")) {
+        //     $(".simple-archive-tags").slideDown();
+        //     $("#tag-all").slideUp();
+        // } else {
+        //     $(".simple-archive-tags").slideUp();
+        //     $("#tag-all").slideDown();
+        // }
+
+        // $('.simple-archive-tags').animate({
+        //     height: 'toggle'
+        // });
+        // $('#tag-all').animate({
+        //     height: 'toggle'
+        // });
+        $(".simple-archive-labels").toggle();
+        $(".simple-archive-articles").toggle();
     });
 });

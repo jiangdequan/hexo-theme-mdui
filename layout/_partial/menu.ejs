@@ -12,6 +12,7 @@
         </div>
         <p><%= theme.email %></p>
     </div>
+
     <ul class="mdui-list mdui-typo">
         <li class="mdui-list-item mdui-ripple mdui-valign">
             <a href="<%- theme.menu.home %>">
@@ -49,7 +50,7 @@
                 <span>&nbsp;&nbsp;About</span>
             </a>
         </li>
-        
+
         <li class="mdui-list-item mdui-ripple">
             <i class="mdui-icon material-icons">&#xe8f4;</i>
             <div class="mdui-list-item-content">
@@ -62,6 +63,17 @@
                 <span id="busuanzi_container_site_uv">
                     <span id="busuanzi_value_site_uv"></span>
                 </span>
+            </div>
+        </li>
+
+        <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-icon material-icons">&#xe02f;</i>
+            <div class="mdui-list-item-content">
+                <span>共 <%= site.posts.length %> 篇</span>
+            </div>
+            <i class="mdui-icon material-icons">&#xe24b;</i>
+            <div class="mdui-list-item-content">
+                <span>共 <%= totalcount(site) %> 字</span>
             </div>
         </li>
     </ul>

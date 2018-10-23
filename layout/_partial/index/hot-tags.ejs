@@ -47,7 +47,7 @@ for (var i = 0; i < tagArray.length - 1; i++) {
     <% for (var i = 0; i < tagArray.length; i++) {
         if (i < theme.hot.tags) {
             var color = 'mdui-color-' + theme.tags.colors[i % theme.tags.colors.length]; %>
-            <a class="mdui-btn mdui-btn-dense mdui-hoverable <%= color %> simple-hot-tags" href="<%- config.root %>tags/<%= tagArray[i].name %>">
+            <a class="mdui-btn mdui-btn-dense mdui-hoverable <%= color %> simple-hot-tags" href="<%= config.root %>tags/<%= tagArray[i].name %>">
             <%= tagArray[i].name %> <%= tagArray[i].value %>
             </a>
     <%  }

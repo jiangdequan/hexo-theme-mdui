@@ -73,6 +73,10 @@ $(document).ready(function () {
     });
 
     $("#simple-post-share .simple-post-share-btn").click(function() {
-        $(".simple-post-share-detail").toggle();
+        if($(".simple-post-share-detail").is(":hidden")) {
+            $(".simple-post-share-detail").slideDown();
+        } else {
+            $(".simple-post-share-detail").slideUp();
+        }
     });
 });

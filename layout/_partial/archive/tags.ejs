@@ -23,7 +23,7 @@ site.tags.each(function(tag, i) {
 <%# tab of tags %>
 <div class="mdui-row simple-archive-name">
     <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-col-xs-12 mdui-valign simple-archive-name-inner">
-        <a href="/tags" class="mdui-btn">All</a>
+        <a href="<%= config.root %>tags" class="mdui-btn">All</a>
         <%
             site.tags.each(function(tag, i) {
                 if (i > index - 2 && i < index + 10) {
@@ -34,11 +34,12 @@ site.tags.each(function(tag, i) {
                         color = '';
                     }
                     %>
-                    <a href="/tags/<%=tag.name%>" class="mdui-btn <%= color %>"><%= tag.name %></a>
+                    <a href="<%= url_for(tag.path) %>" class="mdui-btn <%= color %>"><%= tag.name %></a>
                     <%
                 }
             });
         %>
+        <a href="javascript:;" class="mdui-btn simple-archive-btn" id="simple-all">…</a>
     </div>
 </div>
 
@@ -52,7 +53,17 @@ site.tags.each(function(tag, i) {
 %>
 
 <div class="mdui-row simple-height">
-    <div class="mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12">
+    <div class="mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12 simple-archive-labels mdui-p-b-2" style="display:none;">
+        <div class="mdui-card mdui-shadow-12">
+            <div class="mdui-card-content mdui-typo">
+                <% site.tags.each(function(tag, i) {
+                    var color = 'mdui-color-' + theme.tags.colors[i % theme.tags.colors.length]; %>
+                    <a href="<%= url_for(tag.path) %>" class="mdui-btn mdui-btn-dense <%= color %> mdui-hoverable simple-hot-tags" style="margin-right: 10px;margin-bottom: 10px;"><%=tag.name %></a>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+    <div class="mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12 simple-archive-articles">
         <% sortPosts.forEach(function(post, i) { %>
             <%- partial('_partial/article-excerpt', {item: post, hide_excerpt: true}) %>
         <% }); %>

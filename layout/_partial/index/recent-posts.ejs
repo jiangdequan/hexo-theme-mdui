@@ -16,7 +16,7 @@
                 return;
             }
         %>
-            <a href="<%- config.root %><%- item.path %>" class="mdui-text-color-theme">
+            <a href="<%- url_for(item.path) %>" class="mdui-text-color-theme">
                 <%- item.title %>
             </a>
             <% if (i != theme.recent.posts - 1) { %>

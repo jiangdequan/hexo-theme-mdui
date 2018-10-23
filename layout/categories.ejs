@@ -7,17 +7,28 @@
 </div>
 <div class="mdui-row simple-archive-name">
     <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-col-xs-12 mdui-valign simple-archive-name-inner">
-        <a href="/categories" class="mdui-btn simple-archive-btn" style="color:#ff4081;">All</a>
+        <a href="<%= config.root %>categories" class="mdui-btn simple-archive-btn" style="color:#ff4081;">All</a>
         <% site.categories.each(function(category, i) {
             if(i < 10){ %>
-                <a href="/categories/<%=category.name%>" class="mdui-btn simple-archive-btn"><%=category.name %></a>
+                <a href="<%= url_for(category.path) %>" class="mdui-btn simple-archive-btn"><%=category.name %></a>
             <% }
         }); %>
+        <a href="javascript:;" class="mdui-btn simple-archive-btn" id="simple-all">…</a>
     </div>
 </div>
 
 <div class="mdui-row simple-height">
-    <div class="mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12" id="category-all">
+    <div class="mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12  mdui-p-b-2 simple-archive-labels" style="display:none;">
+        <div class="mdui-card mdui-shadow-12">
+            <div class="mdui-card-content mdui-typo">
+                <% site.categories.each(function(category, i) {
+                    var color = 'mdui-color-' + theme.tags.colors[i % theme.tags.colors.length]; %>
+                    <a href="<%= url_for(category.path) %>" class="mdui-btn mdui-btn-dense <%= color %> mdui-hoverable simple-hot-tags" style="margin-right: 10px;margin-bottom: 10px;"><%=category.name %></a>
+                <% }); %>
+            </div>
+        </div>    
+    </div>
+    <div class="mdui-col-md-7 mdui-col-offset-md-1 mdui-col-xs-12 simple-archive-articles" id="category-all">
         <% site.posts.each(function(post, i) { %>
             <%- partial('_partial/article-excerpt', {item: post, hide_excerpt: true}) %>
         <% }); %>

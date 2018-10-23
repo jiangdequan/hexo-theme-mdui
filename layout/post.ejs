@@ -130,7 +130,7 @@
                 <% page.tags.each(function(tag, i) { 
                     var color = 'mdui-color-' + theme.tags.colors[i % theme.tags.colors.length]; %>    
                 %>
-                    <a href="<%- config.root %>tags/<%= tag.name %>" class="mdui-btn mdui-btn-dense mdui-hoverable <%= color %> simple-article-tags">
+                    <a href="<%- url_for(tag.path) %>" class="mdui-btn mdui-btn-dense mdui-hoverable <%= color %> simple-article-tags">
                         <%- tag.name %>
                     </a>
                 <% }); %>
@@ -145,14 +145,14 @@
     <%# prev page %>
     <div class="mdui-col-md-4 mdui-col-offset-md-1 mdui-col-xs-6 mdui-text-left mdui-typo">
     <% if(page.prev) { %>
-        <a href="<%- config.root %><%= page.prev.path %>"><label class="label-post-prev">☜</label><%= page.prev.title %></a>
+        <a href="<%- url_for(page.prev.path) %>"><label class="label-post-prev">☜</label><%= page.prev.title %></a>
     <% } %>
     </div>
 
     <%# next page %>
     <% if(page.next) { %>
         <div class="mdui-col-md-3 mdui-col-xs-6 mdui-text-right mdui-typo">
-            <a href="<%- config.root %><%= page.next.path %>"><%= page.next.title %><label class="label-post-next">☞</label></a>
+            <a href="<%- url_for(page.next.path) %>"><%= page.next.title %><label class="label-post-next">☞</label></a>
         </div>
     <% } %>
 </div>
