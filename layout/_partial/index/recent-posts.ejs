@@ -19,7 +19,7 @@
             <a href="<%- url_for(item.path) %>" class="mdui-text-color-theme">
                 <%- item.title %>
             </a>
-            <% if (i != theme.recent.posts - 1) { %>
+            <% if ((sortPosts.length > theme.recent.posts && i < theme.recent.posts - 1) || (sortPosts.length <= theme.recent.posts && i != sortPosts.length - 1)) { %>
                 <div class="mdui-divider mdui-m-y-1"></div>
             <% } %>
         <% });%>

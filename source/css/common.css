@@ -202,13 +202,18 @@ body {
  * footer
  */
 .footer {
-    font-size: 13px;
-    height: 45px;
-    line-height: 45px;
+    font-size: 12px;
 }
-
-.footer span {
+.footer a {
     color: rgba(255, 255, 255, 0.6) !important;
+}
+.simple-footer-license {
+    color: rgba(255, 255, 255, 0.6) !important;
+    margin: 0.1em 0 0 0 !important;
+}
+.simple-footer-copyright {
+    color: rgba(255, 255, 255, 0.6) !important;
+    margin: 0.1em 0 0 0 !important;
 }
 
 /**
