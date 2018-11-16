@@ -335,6 +335,10 @@ body {
     margin-right: -4px;
 }
 
+.simple-post-date {
+    font-weight: bolder;
+}
+
 .simple-post-cls h1 {
     margin-top: 0.6em;
 }
@@ -349,7 +353,6 @@ body {
     position: fixed;
     overflow-x: hidden;
 }
-
 .post-toc-wrap h4 {
     padding: 0 0 0 0;
     font-size: 15px;
@@ -539,4 +542,29 @@ body {
     min-width: 60px;
     color: white;
     padding: 0 8px;
+}
+
+
+
+
+.simple-content h2, .simple-content h3, .simple-content h4, .simple-content h5, .simple-content h6 {
+    color: #3f51b5;
+}
+
+figure, figure table {
+    width: 100%;
+}
+
+.gutter {
+    display: none;
+}
+.code {
+    width: 100%;
+}
+.code pre {
+    background-color: #f5f5f5;
+}
+.code span {
+    width: 100%;
+    white-space: pre-wrap;
 }
