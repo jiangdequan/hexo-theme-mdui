@@ -87,10 +87,9 @@
 
             <%# tags %>
             <% if(page.tags && page.tags.length) { %>
-                <div class="mdui-m-b-2">
-                <% page.tags.each(function(tag, i) { 
-                    var color = 'mdui-color-' + theme.tags.colors[i % theme.tags.colors.length]; %>    
-                %>
+                <div class="mdui-m-b-1">
+                <% page.tags.forEach(function(tag, i) { 
+                    var color = 'mdui-color-' + theme.tags.colors[i % theme.tags.colors.length]; %>
                     <a href="<%- url_for(tag.path) %>" class="mdui-btn mdui-btn-dense mdui-hoverable <%= color %> simple-article-tags">
                         <%- tag.name %>
                     </a>
