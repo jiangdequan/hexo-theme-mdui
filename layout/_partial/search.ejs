@@ -45,8 +45,13 @@
                         return;
                     }
     
+                    var url = '<%= config.url %>';
                     for (var i = 0; i < hits.length; i++) {
                         var path = hits[i].permalink;
+                        path = path.replace(url, '');
+                        if (!path.startsWith('/')) {
+                            path = '/' + path;
+                        }
                         var title = hits[i]._highlightResult.title.value;
                         resultObj.append('<a href="' + path + '" class="mdui-list-item mdui-ripple">' + title + '</a>');
                     }
