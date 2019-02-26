@@ -234,6 +234,10 @@ body {
     color: white;
 }
 
+.simple-right-panel .mdui-list-item-icon {
+    color: rgba(0,0,0,.8) !important;
+}
+
 .simple-hot-tags {
     min-width: 30px;
     height: 28px;
