@@ -352,6 +352,7 @@ body {
     width: 300px;
     padding-top: 120px;
     z-index: 1999;
+    overflow-y: hidden;
 }
 
 .post-toc-wrap {

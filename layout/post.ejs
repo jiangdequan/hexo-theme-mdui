@@ -47,7 +47,7 @@
                     <span class="mdui-typo-title"><%= config.author %></span>
                     <br>
                     <br>
-                    <button class="mdui-btn mdui-ripple simple-donation-btn" mdui-dialog="{target: '#simple-donation'}">
+                    <button class="mdui-btn mdui-ripple simple-donation-btn">
                         <i class="mdui-icon mdui-icon-left material-icons">&#xe8dc;</i>稀罕作者
                     </button>
                 </p>
@@ -55,35 +55,6 @@
 
             <%# divider %>
             <div class="mdui-divider mdui-m-t-5 mdui-m-b-1"></div>
-
-            <%# share %>
-            <div class="mdui-row">
-                <div class="mdui-col-md-1 mdui-col-offset-md-11 mdui-col-xs-1 mdui-col-offset-xs-11 simple-share simple-post-share-detail" style="margin-top: -300px;display:none;">
-                    <a href="<%= theme.post.share.url.twitter %>?text=<%= page.title %>&url=<%= theme.url %><%= page.path %>&via=<%= theme.url %>" data-title="分享到Twitter" target="_blank" class="mdui-fab mdui-ripple mdui-color-light-blue mdui-valign mdui-text-center simple-post-share-btn">
-                        <i class="fab fa-twitter fa-sm"></i>
-                    </a>
-                    <a href="<%= theme.post.share.url.facebook %>?u=<%= theme.url %><%= page.path %>" alt="分享到FaceBook" target="_blank" class="mdui-fab mdui-ripple mdui-color-indigo mdui-valign mdui-text-center simple-post-share-btn">
-                        <i class="fab fa-facebook-f fa-sm"></i>
-                    </a>
-                    <a href="<%= theme.post.share.url.google_plus %>?url=<%= theme.url %><%= page.path %>" alt="分享到Google+" target="_blank" class="mdui-fab mdui-ripple mdui-color-deep-orange mdui-valign mdui-text-center simple-post-share-btn">
-                        <i class="fab fa-google-plus-g fa-sm"></i>
-                    </a>
-                    <a href="<%= theme.post.share.url.qq %>?url=<%= theme.url %><%= page.path %>&title=<%= page.title %>&source=truncate(strip_html(page.excerpt), { length: 80})" alt="分享到QQ" target="_blank" class="mdui-fab mdui-ripple mdui-color-blue mdui-valign mdui-text-center simple-post-share-btn">
-                        <i class="fab fa-qq fa-sm"></i>
-                    </a>
-                    <a href="<%= theme.post.share.url.weibo %>?url=<%= theme.url %><%= page.path %>&title=<%= page.title %>" alt="分享到微博" target="_blank" class="mdui-fab mdui-ripple mdui-color-red mdui-valign mdui-text-center simple-post-share-btn">
-                        <i class="fab fa-weibo fa-sm"></i>
-                    </a>
-                    <a href="javascript:;" alt="分享到微信" target="_blank" class="mdui-fab mdui-ripple mdui-color-green mdui-valign mdui-text-center simple-post-share-btn">
-                        <i class="fab fa-weixin fa-sm"></i>
-                    </a>
-                </div>
-                <div class="mdui-col-md-1 mdui-col-offset-md-11 mdui-col-xs-1 mdui-col-offset-xs-11 simple-share" id="simple-post-share">
-                    <button class="mdui-btn mdui-ripple mdui-fab simple-post-share-btn">
-                        <i class="mdui-icon material-icons mdui-color-theme-accent">&#xe80d;</i>
-                    </button>
-                </div>
-            </div>
 
             <%# tags %>
             <% if(page.tags && page.tags.length) { %>
@@ -133,7 +104,7 @@
     </nav>
 </div>
 
-<%# reward %>
+<%# reward
 <div class="mdui-dialog simple-donation-cls" id="simple-donation">
     <div class="mdui-dialog-title">支持一下?</div>
     <div class="mdui-row mdui-m-b-3">
@@ -156,7 +127,7 @@
             </label>
         </div>
     </div>
-</div>
+</div> %>
 
 <%# comments %>
 <div class="mdui-row mdui-p-t-1 mdui-p-b-3">

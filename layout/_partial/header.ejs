@@ -38,37 +38,5 @@
                 <i class="mdui-icon material-icons">close</i>
             </button>
         </div>
-
-        <%# share the site %>
-        <a href="javascript:;" class="mdui-btn mdui-btn-icon simple-header-share">
-            <i class="mdui-icon material-icons">&#xe80d;</i>
-        </a>
-    </div>
-</div>
-
-<%# share pane %>
-<div class="mdui-card mdui-shadow-12 simple-header-share-pane">
-    <div class="mdui-card-content">
-        <a href="<%= theme.post.share.url.twitter %>?text=<%= page.title %>&url=<%= theme.url %><%= page.path %>&via=<%= theme.url %>" data-title="分享到Twitter" target="_blank" class="mdui-fab mdui-ripple mdui-color-light-blue mdui-text-center simple-post-share-btn">
-            <i class="fab fa-twitter fa-sm"></i>
-        </a>
-        <a href="<%= theme.post.share.url.facebook %>?u=<%= theme.url %><%= page.path %>" alt="分享到FaceBook" target="_blank" class="mdui-fab mdui-ripple mdui-color-indigo mdui-text-center simple-post-share-btn">
-            <i class="fab fa-facebook-f fa-sm"></i>
-        </a>
-        <a href="<%= theme.post.share.url.google_plus %>?url=<%= theme.url %><%= page.path %>" alt="分享到Google+" target="_blank" class="mdui-fab mdui-ripple mdui-color-deep-orange mdui-text-center simple-post-share-btn">
-            <i class="fab fa-google-plus-g fa-sm"></i>
-        </a>
-
-        <br>
-
-        <a href="<%= theme.post.share.url.qq %>?url=<%= theme.url %><%= page.path %>&title=<%= page.title %>&source=truncate(strip_html(page.excerpt), { length: 80})" alt="分享到QQ" target="_blank" class="mdui-fab mdui-ripple mdui-color-blue mdui-text-center simple-post-share-btn">
-            <i class="fab fa-qq fa-sm"></i>
-        </a>
-        <a href="<%= theme.post.share.url.weibo %>?url=<%= theme.url %><%= page.path %>&title=<%= page.title %>" alt="分享到微博" target="_blank" class="mdui-fab mdui-ripple mdui-color-red mdui-text-center simple-post-share-btn">
-            <i class="fab fa-weibo fa-sm"></i>
-        </a>
-        <a href="javascript:;" alt="分享到微信" target="_blank" class="mdui-fab mdui-ripple mdui-color-green mdui-text-center simple-post-share-btn">
-            <i class="fab fa-weixin fa-sm"></i>
-        </a>
     </div>
 </div>
