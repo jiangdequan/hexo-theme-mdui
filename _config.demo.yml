@@ -1,9 +1,11 @@
 
 # HTML head
 head:
-  favicon: /img/favicon.png
-  high_res_favicon: /img/favicon.png
-  apple_touch_icon: /img/favicon.png
+  favicon: /favicon/favicon.ico
+  high_res_favicon: /favicon/favicon.ico
+  apple_touch_icon: /images/icon/icon-72x72.png
+  apple_touch_icon_144: /images/icon/icon-144x144.png
+  apple_touch_icon_180: /images/icon/icon-180x180.png
   keywords: blog, hexo, mdui
 
 # appbar
@@ -11,7 +13,12 @@ appbar:
   title: "Title"
   search: false
 
-# menu
+index:
+  welcome: "Welcome to my blog~"
+  notification: false
+  gongzhonghao: /images/gh.png
+  zsxq: /images/zsxq.png
+
 menu:
   home: /
   archives: /archives
@@ -20,7 +27,7 @@ menu:
   github: https://github.com/jiangdequan
   about: /about
 
-# excerpt
+# ндуб╫ь╤о
 excerpt:
   render: false
   length: 200
@@ -34,6 +41,9 @@ latest:
 # recent posts count
 recent:
   posts: 10
+
+hot:
+  tags: 20
 
 # colors of tags(https://www.mdui.org/docs/color)
 tags:
@@ -57,3 +67,14 @@ algolia:
 email: jiangdequan1314@gmail.com
 avatar: /images/avatar.png
 since_year: 2013
+
+statistics:
+  baidu: 28f09eb40c03df56c14ea1736cf3ec3b
+  google: UA-127646245-1
+
+rss: /atom.xml
+url: https://jiangdequan.github.io/
+
+post:
+  alipay: /images/alipay.png
+  wechat: /images/wechat.png
