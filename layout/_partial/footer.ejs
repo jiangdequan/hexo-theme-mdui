@@ -1,9 +1,8 @@
-<footer class="footer mdui-color-theme mdui-text-center">
-    <div class="mdui-typo">
-        <p class="simple-footer-license">
+<footer class="footer mdui-color-theme mdui-text-center" style="height: 44px;">
+    <div class="mdui-valign" style="height: 44px;">
+        <p class="mdui-typo-caption mdui-center">
             <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a>
-        </p>
-        <p class="simple-footer-copyright">
+            <br>
             <%- config.author %> &copy;
             <% if (theme.since_year && theme.since_year < date(new Date(), 'YYYY')) {%>
                 <%- theme.since_year %> -

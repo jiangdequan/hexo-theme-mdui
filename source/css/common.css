@@ -203,18 +203,19 @@ body {
  */
 .footer {
     font-size: 12px;
+    line-height: 16px;
 }
 .footer a {
     color: rgba(255, 255, 255, 0.6) !important;
 }
-.simple-footer-license {
+/* .simple-footer-license {
     color: rgba(255, 255, 255, 0.6) !important;
     margin: 0.1em 0 0 0 !important;
 }
 .simple-footer-copyright {
     color: rgba(255, 255, 255, 0.6) !important;
     margin: 0.1em 0 0 0 !important;
-}
+} */
 
 /**
  * index page
@@ -550,9 +551,6 @@ body {
     padding: 0 8px;
 }
 
-
-
-
 .simple-content h2, .simple-content h3, .simple-content h4, .simple-content h5, .simple-content h6 {
     color: #3f51b5;
 }
@@ -573,4 +571,18 @@ figure, figure table {
 .code span {
     width: 100%;
     white-space: pre-wrap;
+}
+
+#simple-input-search {
+    color: white !important;
+    border-bottom: 1px solid white !important;
+}
+
+#simple-input-search:focus {
+    color: white !important;
+    border-bottom: 1px solid white !important;
+}
+
+.simple-white-btn i, .simple-white-btn i:focus, .simple-white-btn i:active {
+    color: white !important;
 }
